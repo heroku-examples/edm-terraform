@@ -1,3 +1,9 @@
+variable "name" {
+  description = "Top-level name of configuration: lowercase, dash-separated"
+}
+variable "heroku_email" {}
+variable "heroku_api_key" {}
+
 #edm-ui vars
 variable "edm_ui_slug_file_path" {
   description = "Heroku slug archive to release"
@@ -15,7 +21,7 @@ variable "edm_ui_size" {
 }
 
 #edm-dashboard vars
-variable "edm_relay_slug_file_path" {
+variable "edm_dashboard_slug_file_path" {
   description = "Heroku slug archive to release"
   default     = "slugs/edm-dashboard-slug.tgz"
 }

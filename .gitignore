@@ -1,1 +1,7 @@
 slugs/*
+.env
+*.env
+.terraform
+*.tfstate*
+*.ai
+*.log

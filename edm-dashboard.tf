@@ -1,10 +1,10 @@
 # Create a new Heroku app
 resource "heroku_app" "edm_dashboard" {
   name   = "${var.name}-edm-dashboard"
-
+  region = "us"
   config_vars {
-    REACT_APP_EDM_STREAM_BACKEND_HOST = "https://${heroku_app.edm_stream.name}.herokuapp.com" 
-    REACT_APP_EDM_STATS_BACKEND_HOST  = "https://${heroku_app.edm_stats.name}.herokuapp.com" 
+    REACT_APP_EDM_STREAM_BACKEND_HOST = "https://${var.name}-edm-stream.herokuapp.com" 
+    REACT_APP_EDM_STATS_BACKEND_HOST  = "https://${var.name}-edm-stats.herokuapp.com" 
   }
 
   buildpacks = [
@@ -31,7 +31,7 @@ resource "heroku_app_release" "edm_dashboard" {
 resource "heroku_formation" "edm_dashboard" {
   app        = "${heroku_app.edm_dashboard.id}"
   type       = "web"
-  quantity   = "${var.edm_dashboard_app_count}"
-  size       = "${var.edm_dashboard_app_size}"
+  quantity   = "${var.edm_dashboard_count}"
+  size       = "${var.edm_dashboard_size}"
   depends_on = ["heroku_app_release.edm_dashboard"]
 }
