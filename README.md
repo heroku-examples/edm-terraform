@@ -10,8 +10,8 @@ Uses terraform to create all 5 edm applications:
 
 Additionally this creates:
 
-1. a hobby-dev postgresql database
-1. a basic-0 multi-tenant kafka cluster
+1. a `hobby-dev` postgresql database
+1. a `basic-0` multi-tenant kafka cluster
 
 ## Requirements
 
