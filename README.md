@@ -18,6 +18,8 @@ Additionally this creates:
 1. Heroku Account
 1. Git LFS
 
+![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](https://s3.amazonaws.com/octo-public/kafka-microservices.png "EDM")
+
 ## Config
 
 ### Heroku Authorization
