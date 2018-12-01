@@ -16,7 +16,7 @@ Additionally this creates:
 ## Requirements
 
 1. Heroku Account
-1. Git LFS
+1. [Git LFS](https://git-lfs.github.com/)
 
 ![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](https://s3.amazonaws.com/octo-public/kafka-microservices.png "EDM")
 
