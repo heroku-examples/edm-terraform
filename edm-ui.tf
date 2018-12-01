@@ -13,7 +13,7 @@ resource "heroku_app" "edm_ui" {
 }
 
 resource "heroku_slug" "edm_ui" {
-  app                            = "${heroku_app.edm_ui.id}"
+  app                            = "${heroku_app.edm_ui.name}"
   buildpack_provided_description = "mars/create-react-app"
   commit_description             = "manual slug build"
   file_path                      = "${var.edm_ui_slug_file_path}"
@@ -24,12 +24,12 @@ resource "heroku_slug" "edm_ui" {
 }
 
 resource "heroku_app_release" "edm_ui" {
-  app     = "${heroku_app.edm_ui.id}"
+  app     = "${heroku_app.edm_ui.name}"
   slug_id = "${heroku_slug.edm_ui.id}"
 }
 
 resource "heroku_formation" "edm_ui" {
-  app        = "${heroku_app.edm_ui.id}"
+  app        = "${heroku_app.edm_ui.name}"
   type       = "web"
   quantity   = "${var.edm_ui_count}"
   size       = "${var.edm_ui_size}"

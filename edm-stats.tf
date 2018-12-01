@@ -13,10 +13,10 @@ resource "heroku_app" "edm_stats" {
 }
 
 resource "heroku_addon" "database" {
-  app  = "${var.name}-edm-stats"
+  app  = "${heroku_app.edm_stats.name}"
   plan = "heroku-postgresql:hobby-dev"
   provisioner "local-exec" {
-    command = "./setup-postgres.sh ${var.name}-edm-stats"
+    command = "./setup-postgres.sh ${heroku_app.edm_stats.name}"
   }
 }
 
@@ -26,7 +26,7 @@ resource "heroku_addon_attachment" "edm_stats_kafka" {
 }
 
 resource "heroku_slug" "edm_stats" {
-  app                            = "${heroku_app.edm_stats.id}"
+  app                            = "${heroku_app.edm_stats.name}"
   buildpack_provided_description = "Node.js"
   commit_description             = "manual slug build"
   file_path                      = "${var.edm_stats_slug_file_path}"
@@ -37,14 +37,14 @@ resource "heroku_slug" "edm_stats" {
 }
 
 resource "heroku_app_release" "edm_stats" {
-  app     = "${heroku_app.edm_stats.id}"
+  app     = "${heroku_app.edm_stats.name}"
   slug_id = "${heroku_slug.edm_stats.id}"
 }
 
 resource "heroku_formation" "edm_stats" {
-  app        = "${heroku_app.edm_stats.id}"
+  app        = "${heroku_app.edm_stats.name}"
   type       = "web"
   quantity   = "${var.edm_stats_count}"
   size       = "${var.edm_stats_size}"
-  depends_on = ["heroku_app_release.edm_stats"]
+  depends_on = ["heroku_app_release.edm_stats","heroku_addon.kafka"]
 }

@@ -54,6 +54,7 @@ terraform init
 ```
 
 Choose a deployment name. Keep it short as your resources will be prefixed by the chosen name.
+
 ```
 terraform apply \
   -var name=<your-deployment-name> \
