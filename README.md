@@ -2,11 +2,11 @@
 
 Uses terraform to create all 5 edm applications:
 
-1. edm-ui
-1. edm-relay
-1. edm-stream
-1. edm-stats
-1. edm-dashboard
+1. [edm-relay](https://github.com/trevorscott/edm-relay)
+1. [edm-stream](https://github.com/trevorscott/edm-stream)
+1. [edm-stats](https://github.com/trevorscott/edm-stats)
+1. [edm-ui](https://github.com/trevorscott/edm-ui)
+1. [edm-dashboard](https://github.com/trevorscott/edm-dashboard)
 
 Additionally this creates:
 
