@@ -1,0 +1,5 @@
+slugs/edm-dashboard-slug.tgz filter=lfs diff=lfs merge=lfs -text
+slugs/edm-relay-slug.tgz filter=lfs diff=lfs merge=lfs -text
+slugs/edm-stats-slug.tgz filter=lfs diff=lfs merge=lfs -text
+slugs/edm-stream-slug.tgz filter=lfs diff=lfs merge=lfs -text
+slugs/edm-ui-slug.tgz filter=lfs diff=lfs merge=lfs -text

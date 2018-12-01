@@ -1,4 +1,3 @@
-slugs/*
 .env
 *.env
 .terraform
