@@ -1,6 +1,6 @@
 # edm-terraform
 
-Uses terraform to create all 5 edm applications:
+Uses terraform to create and deploy all 5 edm applications:
 
 1. [edm-relay](https://github.com/trevorscott/edm-relay)
 1. [edm-stream](https://github.com/trevorscott/edm-stream)
@@ -8,10 +8,10 @@ Uses terraform to create all 5 edm applications:
 1. [edm-ui](https://github.com/trevorscott/edm-ui)
 1. [edm-dashboard](https://github.com/trevorscott/edm-dashboard)
 
-Additionally this creates:
+Additionally two data services are created as well:
 
-1. a `hobby-dev` postgresql database
-1. a `basic-0` multi-tenant kafka cluster
+1. a `hobby-dev` PostgreSQL database
+1. a `basic-0` multi-tenant Apache Kafka on Heroku cluster
 
 ## Requirements
 
@@ -52,6 +52,7 @@ export \
 ## Usage
 
 ```bash
+git clone git@github.com:trevorscott/edm-terraform.git
 terraform init
 ```
 
@@ -59,6 +60,5 @@ Choose a deployment name. Keep it short as your resources will be prefixed by th
 
 ```
 terraform apply \
-  -var name=<your-deployment-name> \
-  -var aws_region=us-west-2
+  -var name=<your-deployment-name>
 ```
