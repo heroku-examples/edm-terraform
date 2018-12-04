@@ -16,6 +16,7 @@ Additionally two data services are created as well:
 ## Requirements
 
 1. Heroku Account
+1. [Heroku Kafka CLI Plugin](https://devcenter.heroku.com/articles/kafka-on-heroku#preparing-your-development-environment)
 1. [Git LFS](https://git-lfs.github.com/)
 
 ![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](https://s3.amazonaws.com/octo-public/kafka-microservices.png "EDM")
