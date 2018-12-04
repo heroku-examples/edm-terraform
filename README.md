@@ -1,6 +1,6 @@
 # edm-terraform
 
-Uses terraform to create and deploy all 5 `edm` applications:
+Use terraform to create and deploy all 5 `edm` applications:
 
 1. [edm-relay](https://github.com/trevorscott/edm-relay)
 1. [edm-stream](https://github.com/trevorscott/edm-stream)
