@@ -4,3 +4,4 @@
 *.tfstate*
 *.ai
 *.log
+.DS_STORE
