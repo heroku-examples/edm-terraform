@@ -41,7 +41,7 @@ Second, [generate an authorization token](https://devcenter.heroku.com/articles/
 heroku authorizations:create --description terraform-my-app
 ```
 
-Once you have acquired your Heroku authorization token, combine it with your heroku account email:
+Once you have acquired your Heroku authorization token set it and your heroku email as enviornment variables:
 
 
 ```bash
