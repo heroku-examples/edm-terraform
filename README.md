@@ -41,7 +41,7 @@ Second, [generate an authorization token](https://devcenter.heroku.com/articles/
 heroku authorizations:create --description terraform-my-app
 ```
 
-Once you have acquired your Heroku authorization token, combine it with your heroku account email, your AWS credentials, the desired Redshift information and save them as [enviornment variables for Terraform](https://www.terraform.io/docs/configuration/variables.html#environment-variables):
+Once you have acquired your Heroku authorization token, combine it with your heroku account email:
 
 
 ```bash
