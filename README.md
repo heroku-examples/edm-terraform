@@ -54,6 +54,7 @@ export \
 
 ```bash
 git clone git@github.com:trevorscott/edm-terraform.git
+cd edm-terraform
 terraform init
 ```
 
