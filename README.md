@@ -13,6 +13,8 @@ Additionally two data services are created as well:
 1. a `hobby-dev` PostgreSQL database
 1. a `basic-0` multi-tenant Apache Kafka on Heroku cluster
 
+You can read about this architecture in the Heroku Dev Center article: [Event Driven Microservices with Apache Kafka](https://devcenter.heroku.com/articles/event-driven-microservices-with-apache-kafka).
+
 ## Requirements
 
 1. Heroku Account
