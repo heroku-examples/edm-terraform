@@ -19,7 +19,6 @@ You can read about this architecture in the Heroku Dev Center article: [Event Dr
 
 1. Heroku Account
 1. [Heroku Kafka CLI Plugin](https://devcenter.heroku.com/articles/kafka-on-heroku#preparing-your-development-environment)
-1. [Git LFS](https://git-lfs.github.com/)
 
 ![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](docs/kafka-microservices-v2.png)
 
