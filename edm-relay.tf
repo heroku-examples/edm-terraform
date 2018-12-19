@@ -17,20 +17,18 @@ resource "heroku_addon" "kafka" {
   }
 }
 
-resource "heroku_slug" "edm_relay" {
-  app                            = "${heroku_app.edm_relay.name}"
-  buildpack_provided_description = "Node.js"
-  commit_description             = "manual slug build"
-  file_path                      = "${var.edm_relay_slug_file_path}"
+resource "heroku_build" "edm_relay" {
+  app        = "${heroku_app.edm_relay.id}"
 
-  process_types = {
-    web = "npm start"
+  source = {
+    url      = "https://github.com/trevorscott/edm-relay/archive/v1.1.tar.gz"
+    version = "1.0"
   }
 }
 
 resource "heroku_app_release" "edm_relay" {
   app     = "${heroku_app.edm_relay.name}"
-  slug_id = "${heroku_slug.edm_relay.id}"
+  slug_id = "${heroku_build.edm_relay.slug_id}"
 }
 
 resource "heroku_formation" "edm_relay" {

@@ -37,7 +37,7 @@ heroku kafka:consumer-groups:create $cg2Dev -a $1
 # Before we proceed, make sure topics & consumer groups are created
 args=("edm-ui-click" "edm-ui-pageload")
 pat=$(echo ${args[@]}|tr " " "|")
-end=$((SECONDS+120))
+end=$((SECONDS+240))
 while [ $SECONDS -lt $end ]; do 
   if heroku kafka:topics -a $1 | grep -Eow "$pat"; then
       echo "Kafka Topics Ready."
@@ -49,7 +49,7 @@ done
 
 args2=("edm-consumer-group-1" "edm-consumer-group-2")
 pat2=$(echo ${args2[@]}|tr " " "|")
-end=$((SECONDS+120))
+end=$((SECONDS+240))
 while [ $SECONDS -lt $end ]; do 
   if heroku kafka:consumer-groups -a $1 | grep -Eow "$pat2"; then
       echo "Kafka Consumer Groups Ready."

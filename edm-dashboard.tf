@@ -12,20 +12,18 @@ resource "heroku_app" "edm_dashboard" {
   ]
 }
 
-resource "heroku_slug" "edm_dashboard" {
-  app                            = "${heroku_app.edm_dashboard.name}"
-  buildpack_provided_description = "mars/create-react-app"
-  commit_description             = "manual slug build"
-  file_path                      = "${var.edm_dashboard_slug_file_path}"
+resource "heroku_build" "edm_dashboard" {
+  app        = "${heroku_app.edm_dashboard.id}"
 
-  process_types = {
-    web = "bin/boot"
+  source = {
+    url      = "https://github.com/trevorscott/edm-dashboard/archive/v1.0.tar.gz"
+    version = "1.0"
   }
 }
 
 resource "heroku_app_release" "edm_dashboard" {
   app     = "${heroku_app.edm_dashboard.name}"
-  slug_id = "${heroku_slug.edm_dashboard.id}"
+  slug_id = "${heroku_build.edm_dashboard.slug_id}"
 }
 
 resource "heroku_formation" "edm_dashboard" {
