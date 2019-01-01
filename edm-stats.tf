@@ -34,15 +34,10 @@ resource "heroku_build" "edm_stats" {
   }
 }
 
-resource "heroku_app_release" "edm_stats" {
-  app     = "${heroku_app.edm_stats.name}"
-  slug_id = "${heroku_build.edm_stats.slug_id}"
-}
-
 resource "heroku_formation" "edm_stats" {
   app        = "${heroku_app.edm_stats.name}"
   type       = "web"
   quantity   = "${var.edm_stats_count}"
   size       = "${var.edm_stats_size}"
-  depends_on = ["heroku_app_release.edm_stats","heroku_addon.kafka"]
+  depends_on = ["heroku_build.edm_stats","heroku_addon.kafka"]
 }
