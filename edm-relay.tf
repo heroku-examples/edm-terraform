@@ -26,15 +26,10 @@ resource "heroku_build" "edm_relay" {
   }
 }
 
-resource "heroku_app_release" "edm_relay" {
-  app     = "${heroku_app.edm_relay.name}"
-  slug_id = "${heroku_build.edm_relay.slug_id}"
-}
-
 resource "heroku_formation" "edm_relay" {
   app        = "${heroku_app.edm_relay.name}"
   type       = "web"
   quantity   = "${var.edm_relay_count}"
   size       = "${var.edm_relay_size}"
-  depends_on = ["heroku_app_release.edm_relay"]
+  depends_on = ["heroku_build.edm_relay"]
 }
