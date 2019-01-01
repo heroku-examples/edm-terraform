@@ -21,15 +21,10 @@ resource "heroku_build" "edm_dashboard" {
   }
 }
 
-resource "heroku_app_release" "edm_dashboard" {
-  app     = "${heroku_app.edm_dashboard.name}"
-  slug_id = "${heroku_build.edm_dashboard.slug_id}"
-}
-
 resource "heroku_formation" "edm_dashboard" {
   app        = "${heroku_app.edm_dashboard.name}"
   type       = "web"
   quantity   = "${var.edm_dashboard_count}"
   size       = "${var.edm_dashboard_size}"
-  depends_on = ["heroku_app_release.edm_dashboard"]
+  depends_on = ["heroku_build.edm_dashboard"]
 }
