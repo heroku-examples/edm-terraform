@@ -26,15 +26,10 @@ resource "heroku_build" "edm_stream" {
   }
 }
 
-resource "heroku_app_release" "edm_stream" {
-  app     = "${heroku_app.edm_stream.name}"
-  slug_id = "${heroku_build.edm_stream.slug_id}"
-}
-
 resource "heroku_formation" "edm_stream" {
   app        = "${heroku_app.edm_stream.name}"
   type       = "web"
   quantity   = "${var.edm_stream_count}"
   size       = "${var.edm_stream_size}"
-  depends_on = ["heroku_app_release.edm_stream","heroku_addon.kafka"]
+  depends_on = ["heroku_build.edm_stream","heroku_addon.kafka"]
 }

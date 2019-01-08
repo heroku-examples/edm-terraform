@@ -19,15 +19,10 @@ resource "heroku_build" "edm_ui" {
   }
 }
 
-resource "heroku_app_release" "edm_ui" {
-  app     = "${heroku_app.edm_ui.name}"
-  slug_id = "${heroku_build.edm_ui.slug_id}"
-}
-
 resource "heroku_formation" "edm_ui" {
   app        = "${heroku_app.edm_ui.name}"
   type       = "web"
   quantity   = "${var.edm_ui_count}"
   size       = "${var.edm_ui_size}"
-  depends_on = ["heroku_app_release.edm_ui"]
+  depends_on = ["heroku_build.edm_ui"]
 }
