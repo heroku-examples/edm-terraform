@@ -15,12 +15,29 @@ Additionally two data services are created as well:
 
 You can read about this architecture in the Heroku Dev Center article: [Event Driven Microservices with Apache Kafka](https://devcenter.heroku.com/articles/event-driven-microservices-with-apache-kafka).
 
+![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](docs/kafka-microservices-v2.png)
+
 ## Requirements
 
 1. Heroku Account
+1. [Terraform](https://www.terraform.io/downloads.html)
+1. [PostgreSQL](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup)
 1. [Heroku Kafka CLI Plugin](https://devcenter.heroku.com/articles/kafka-on-heroku#preparing-your-development-environment)
 
-![Event Driven Microservices with Apache Kafka on Heroku Demo Architecture](docs/kafka-microservices-v2.png)
+If you haven't already, create a Heroku account and [install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install). 
+
+Once you have the Heroku CLI installed, install the Heroku Kafka CLI plugin:
+
+```bash
+heroku plugins:install heroku-kafka
+```
+
+Additionally you'll need to make sure that you have [Terraform set up on your machine](https://www.terraform.io/downloads.html).
+
+[Follow instructions here to set up PostgreSQL locally](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup
+)
+
+Now you're ready to run the Terraform config that sets up this system.
 
 ## Config
 
