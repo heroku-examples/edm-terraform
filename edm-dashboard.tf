@@ -16,7 +16,7 @@ resource "heroku_build" "edm_dashboard" {
   app        = "${heroku_app.edm_dashboard.id}"
 
   source = {
-    url      = "https://github.com/trevorscott/edm-dashboard/archive/v1.0.tar.gz"
+    url      = "https://github.com/trevorscott/edm-dashboard/archive/v1.0.1.tar.gz"  
     version = "1.0"
   }
 }
